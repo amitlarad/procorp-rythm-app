@@ -1,0 +1,7 @@
+Start
+    PhoneLogin
+    EmailLogin
+    Register
+    VerifyLogin
+    CompanyOnboarding (with charts)
+
