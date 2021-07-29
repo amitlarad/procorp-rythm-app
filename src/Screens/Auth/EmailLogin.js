@@ -10,6 +10,8 @@ import {
   alignSelfCenter,
   logoTextUpper,
   themeAccentColor,
+  allSpaceBetweenStyle,
+  marginHorizontal5,
 } from "../../Configs/StyleConstants";
 import TextLogo from "../../Components/TextLogo";
 import { MainTopContainer } from "../../Components/Shared";
@@ -29,14 +31,14 @@ const EmailLogin = ({ navigation, theme, database }) => {
   const [password, setPassword] = useState("");
   const [showSnack, setShowSnack] = useState(false);
   const validateLogin = () => {
-      setShowSnack(true);
+    setShowSnack(true);
   };
 
   return (
     <MainTopContainer cls={{ ...mainTopContainer }} database={database}>
       <View style={{ ...offsetCenterContent }}>
         <TextLogo />
-        <Title style={{ ...alignSelfCenter, color:themeAccentColor }}>
+        <Title style={{ ...alignSelfCenter, color: themeAccentColor }}>
           Sign in to {logoTextUpper}!
         </Title>
         <Paragraph>
@@ -65,7 +67,6 @@ const EmailLogin = ({ navigation, theme, database }) => {
             console.log("password", pass);
           }}
         />
-        <Divider />
         <Button
           style={{ marginTop: 15 }}
           icon="login"
@@ -78,29 +79,53 @@ const EmailLogin = ({ navigation, theme, database }) => {
         >
           Sign in
         </Button>
-        <View style={{ ...flexRow, ...allSpaceAroundStyle }}>
-          <Button
-            mode="text"
-            style={{ ...marginVertical10 }}
-            onPress={() => {navigation.replace('Register')}}
-          >
-            New User? Signup
-          </Button>
-          <Button
-            mode="text"
-            style={{ ...marginVertical10 }}
-            onPress={() => {navigation.replace('AccountRecover')}}
-          >
-            Forgot Password
-          </Button>
-        </View>
+        <Button
+          mode="text"
+          contentStyle={{ flexDirection: "row-reverse" }}
+          icon="account-plus-outline"
+          onPress={() => {
+            navigation.replace("Register");
+          }}
+        >
+          Sign up
+        </Button>
+        <Button
+          mode="text"
+          contentStyle={{ flexDirection: "row-reverse" }}
+          icon="card-account-phone-outline"
+          style={{ ...marginHorizontal5 }}
+          onPress={() => {
+            navigation.replace("PhoneLogin");
+          }}
+        >
+          Sign in with Mobile
+        </Button>
+        <Button
+          mode="text"
+          contentStyle={{ flexDirection: "row-reverse" }}
+          icon="account-cog-outline"
+          style={{ ...marginHorizontal5 }}
+          onPress={() => {
+            navigation.replace("AccountRecover");
+          }}
+        >
+          Recover Account
+        </Button>
       </View>
       <Snackbar
         style={{ ...alignSelfCenter }}
         visible={showSnack}
-        onDismiss={() => {setShowSnack(false);navigation.navigate("VerifyLogin");}}
-        action={{ label: "Login Successful", onPress: () => {navigation.navigate("VerifyLogin");} }}
-        duration={Snackbar.DURATION_MEDIUM}
+        onDismiss={() => {
+          setShowSnack(false);
+          navigation.navigate("VerifyLogin");
+        }}
+        action={{
+          label: "Login Successful",
+          onPress: () => {
+            navigation.navigate("VerifyLogin");
+          },
+        }}
+        duration={Snackbar.DURATION_SHORT}
       >
         Success
       </Snackbar>

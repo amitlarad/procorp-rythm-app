@@ -7,9 +7,9 @@ import theme from "../Configs/ThemeConfig";
 const AppbarComponent = ({navigation, route}) => {
   return (
     <SafeAreaView>
-      <Appbar.Header style={{ backgroundColor:theme.colors.disabled, elevation:5 }}>
+      <Appbar.Header style={{ backgroundColor:theme.colors.background, elevation:5 }}>
         {/* <Appbar.Action icon="menu" onPress={() => {navigation.toggleDrawer();}} /> */}
-        <Appbar.Action icon="menu" onPress={() => {}} />
+        {/* <Appbar.Action icon="menu" onPress={() => {}} /> */}
         <Appbar.Content title={logoTextUpper} subtitle="Complete HRMS Solution" />
         <Appbar.Action icon="account-outline" onPress={() => {}} />
         <Appbar.Action icon="bell-outline" onPress={() => {}} />

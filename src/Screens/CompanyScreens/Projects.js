@@ -1,21 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import { withDatabase } from "../../Provider";
 import { withTheme } from "react-native-paper";
-import { mainTopContainer } from "../../Configs/StyleConstants";
-import { Grid, Row, Column } from "react-native-easy-grid";
-import Layout from "../../Components/Layout";
+import TabLandingPage from "../../Components/TabLandingPage";
 
 const Projects = (props) => {
+  const pageCards = props.database.ProjectsCards;
   return (
-    <Layout showAppbar={true}>
-      <View style={{ ...mainTopContainer }}>
-        <Text>Projects</Text>
-      </View>
-    </Layout>
+    <TabLandingPage pageCards={pageCards}/>
   );
 };
 
 export default withDatabase(withTheme(Projects));
-
-const styles = StyleSheet.create({});

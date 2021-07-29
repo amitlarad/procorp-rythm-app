@@ -9,7 +9,7 @@ const theme = {
         accent: "#ff6e40",
         disabled: "#595260",
         background: "#f5f0e1",
-        text: "#444444",
+        text: "#000000",
     },
 };
 

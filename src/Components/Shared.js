@@ -11,6 +11,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Fontisto from "react-native-vector-icons/Fontisto";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import {
   TxtBold,
   TxtNormal,
@@ -174,16 +175,54 @@ const RenderIcon = (props) => {
           />
         );
       break;
+    case "FontAwesome5":
+      if (props.color)
+        return (
+          <FontAwesome5
+            name={!props.name ? "home" : props.name}
+            color={!props.color ? "white" : props.color}
+            size={
+              !props.size
+                ? 24
+                : !props.bold
+                ? props.size
+                : parseInt(props.size) + sizeInc
+            }
+            style={!props.bold ? TxtNormal : TxtBold}
+          />
+        );
+      else
+        return (
+          <FontAwesome5
+            name={!props.name ? "home" : props.name}
+            size={
+              !props.size
+                ? 24
+                : !props.bold
+                ? props.size
+                : parseInt(props.size) + sizeInc
+            }
+            style={!props.bold ? TxtNormal : TxtBold}
+          />
+        );
+      break;
   }
 };
 
-const NavBarComponentTop = ({navigation}) => {
-  const leftIcon = () => {return(
-    <Icon name={"menu-outline"} size={30} color={themeTextColor} onPress={() => navigation.navigate('MenuPage')}/>
-  )};
-  const rightIcon = () => {return (
-    <Icon name={"search-outline"} size={30} color={themeTextColor} />
-  )};
+const NavBarComponentTop = ({ navigation }) => {
+  const leftIcon = () => {
+    return (
+      <Icon
+        name={"menu-outline"}
+        size={30}
+        color={themeTextColor}
+        onPress={() => navigation.navigate("MenuPage")}
+      />
+    );
+  };
+  const rightIcon = () => {
+    return <Icon name={"search-outline"} size={30} color={themeTextColor} />;
+  };
   return (
     <SafeAreaView>
       <View style={styles.mainNav}>
@@ -201,7 +240,6 @@ const NavBarComponentTop = ({navigation}) => {
           }}
         />
       </View>
-    
     </SafeAreaView>
   );
 };
@@ -209,14 +247,31 @@ const NavBarComponentTop = ({navigation}) => {
 const ContainerPanel = (props) => {
   return (
     <View style={panelContainerClass}>
-      {props.heading != '' && <Text style={{ ...fontRegular, ...font15, ...fontBold, color:theme.colors.primary }}>{props.heading}</Text>}
-      {props.heading && <Divider/>}
+      {props.heading != "" && (
+        <Text
+          style={{
+            ...fontRegular,
+            ...font15,
+            ...fontBold,
+            color: theme.colors.primary,
+          }}
+        >
+          {props.heading}
+        </Text>
+      )}
+      {props.heading && <Divider />}
       {props.children}
     </View>
   );
 };
 
-export { Span, MainTopContainer, RenderIcon, NavBarComponentTop,ContainerPanel };
+export {
+  Span,
+  MainTopContainer,
+  RenderIcon,
+  NavBarComponentTop,
+  ContainerPanel,
+};
 
 const styles = StyleSheet.create({
   mainNav: {

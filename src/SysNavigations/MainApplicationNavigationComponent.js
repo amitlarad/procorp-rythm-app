@@ -8,7 +8,7 @@ const MainAppNavComponent = createStackNavigator();
 
 const MainApplicationNavigationComponent = (props) => {
     return (
-        <MainAppNavComponent.Navigator initialRouteName="MainDashboardEntry">
+        <MainAppNavComponent.Navigator>
             <MainAppNavComponent.Screen name="InitAppRouteEntry" component={SysStartNav} options={{ headerShown: false }}/>
             <MainAppNavComponent.Screen name="MainDashboardEntry" component={MainBottomNavigationStack} options={{ headerShown: false }}/>
         </MainAppNavComponent.Navigator>

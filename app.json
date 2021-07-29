@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "HRMS Application ",
+    "githubUrl": "https://github.com/amitlarad/procorp-rythm-app"
   }
 }

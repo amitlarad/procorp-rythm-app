@@ -66,24 +66,15 @@ const AccountRecover = ({ navigation, theme, database }) => {
         >
           Submit
         </Button>
-        <View style={{ ...flexRow, ...allSpaceAroundStyle }}>
-          <Button
+        <Button
             mode="text"
-            style={{ ...marginVertical10 }}
-            onPress={() => {
-              navigation.replace("Register");
-            }}
-          >
-            New User? Signup
-          </Button>
-          <Button
-            mode="text"
+            contentStyle={{ flexDirection:'row-reverse' }}
+            icon="login"
             style={{ ...marginVertical10 }}
             onPress={() => {navigation.replace('EmailLogin')}}
           >
             Sign In
           </Button>
-        </View>
       </View>
       <Snackbar
         style={{ ...alignSelfCenter }}

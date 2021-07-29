@@ -123,6 +123,8 @@ const Register = ({ navigation, theme, database }) => {
           <View style={{ ...flexRow, ...allSpaceAroundStyle }}>
             <Button
               mode="outline"
+              icon="lock"
+              contentStyle={{ flexDirection:'row-reverse' }}
               style={{ ...marginVertical10 }}
               onPress={() => {navigation.replace('EmailLogin')}}
             >
@@ -136,15 +138,15 @@ const Register = ({ navigation, theme, database }) => {
         visible={showSnack}
         onDismiss={() => {
           setShowSnack(false);
-          navigation.navigate("VerifyLogin");
+          navigation.navigate("RegisterThanks");
         }}
         action={{
           label: "Sign up successful",
           onPress: () => {
-            navigation.navigate("VerifyLogin");
+            navigation.navigate("RegisterThanks");
           },
         }}
-        duration={Snackbar.DURATION_MEDIUM}
+        duration={Snackbar.DURATION_SHORT}
       >
         Success
       </Snackbar>

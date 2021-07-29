@@ -67,6 +67,8 @@ const VerifyLogin = ({ navigation, theme, database }) => {
         <View style={{ ...flexRow, ...allSpaceAroundStyle }}>
           <Button
             mode="text"
+            contentStyle={{ flexDirection: "row-reverse" }}
+            icon="account-plus-outline"
             style={{ ...marginVertical10 }}
             onPress={() => {
               navigation.replace("Register");
@@ -76,12 +78,14 @@ const VerifyLogin = ({ navigation, theme, database }) => {
           </Button>
           <Button
             mode="text"
+            contentStyle={{ flexDirection: "row-reverse" }}
+            icon="login"
             style={{ ...marginVertical10 }}
             onPress={() => {
               navigation.replace("EmailLogin");
             }}
           >
-            Login
+            Sign in
           </Button>
         </View>
       </View>
@@ -90,15 +94,15 @@ const VerifyLogin = ({ navigation, theme, database }) => {
         visible={showSnack}
         onDismiss={() => {
           setShowSnack(false);
-          navigation.replace('MainDashboardEntry');
+          navigation.replace("MainDashboardEntry");
         }}
         action={{
           label: "Login Verified",
           onPress: () => {
-            navigation.replace('MainDashboardEntry');
+            navigation.replace("MainDashboardEntry");
           },
         }}
-        duration={Snackbar.DURATION_MEDIUM}
+        duration={Snackbar.DURATION_SHORT}
       >
         Success
       </Snackbar>
